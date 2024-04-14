@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.crio.LearningNavigator.dto.EmptyBodyDTO;
 import com.crio.LearningNavigator.dto.SubjectDTO;
@@ -14,6 +15,7 @@ import com.crio.LearningNavigator.exception.ResourceNotFoundException;
 import com.crio.LearningNavigator.repository.SubjectRepository;
 import com.crio.LearningNavigator.service.SubjectService;
 
+@Service
 public class SubjectServiceImpl implements SubjectService{
     @Autowired
     private SubjectRepository subjectRepository;
@@ -52,10 +54,10 @@ public class SubjectServiceImpl implements SubjectService{
     @Override
     public EmptyBodyDTO delete(Long subjectId) {
         if(subjectId == null) {
-            throw new IllegalArgumentException("Student ID cannot be null");
+            throw new IllegalArgumentException("Subject ID cannot be null");
         }
         Subject subject = subjectRepository.findById(subjectId)
-            .orElseThrow(() -> new ResourceNotFoundException("Student", "Student Id", Long.toString(subjectId)));
+            .orElseThrow(() -> new ResourceNotFoundException("Subject", "Subject Id", Long.toString(subjectId)));
         subjectRepository.delete(subject);
         return new EmptyBodyDTO();
     }

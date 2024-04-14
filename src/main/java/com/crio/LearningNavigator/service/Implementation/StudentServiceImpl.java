@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.crio.LearningNavigator.dto.EmptyBodyDTO;
 import com.crio.LearningNavigator.dto.StudentDTO;
@@ -16,6 +17,7 @@ import com.crio.LearningNavigator.repository.StudentRepository;
 import com.crio.LearningNavigator.repository.SubjectRepository;
 import com.crio.LearningNavigator.service.StudentService;
 
+@Service
 public class StudentServiceImpl implements StudentService {
     
     @Autowired

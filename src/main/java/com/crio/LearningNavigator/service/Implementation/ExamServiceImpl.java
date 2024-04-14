@@ -3,6 +3,7 @@ package com.crio.LearningNavigator.service.Implementation;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.crio.LearningNavigator.dto.EmptyBodyDTO;
 import com.crio.LearningNavigator.dto.ExamDTO;
@@ -16,6 +17,7 @@ import com.crio.LearningNavigator.repository.StudentRepository;
 import com.crio.LearningNavigator.repository.SubjectRepository;
 import com.crio.LearningNavigator.service.ExamService;
 
+@Service
 public class ExamServiceImpl implements ExamService {
     @Autowired
     private ExamRepository examRepository;
