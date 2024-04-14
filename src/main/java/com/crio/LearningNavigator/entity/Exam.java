@@ -35,7 +35,7 @@ public class Exam {
     private Subject subject;
 
     @JsonBackReference
-    @ManyToMany(mappedBy = "registeredExams")
+    @ManyToMany
     @JoinTable(name = "Student_Exam_Mapping", joinColumns = @JoinColumn(name = "exam_id"), 
         	inverseJoinColumns = @JoinColumn(name = "student_id"))
     Set<Student> registeredStudents = new HashSet<>();

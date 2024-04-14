@@ -22,12 +22,12 @@ import lombok.NoArgsConstructor;
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long subjectId;
+    private Long id;
     private String name;
 
     @JsonBackReference
-    @ManyToMany(mappedBy = "enrolledStudents")
-    @JoinTable(name = "subject_students",
+    @ManyToMany
+    @JoinTable(name = "Student_Subject_Mapping",
             joinColumns = @JoinColumn(name = "subject_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
     private Set<Student> enrolledStudents;

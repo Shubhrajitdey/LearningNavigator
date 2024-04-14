@@ -21,17 +21,17 @@ import lombok.NoArgsConstructor;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long registrationId;
+    private Long id;
     private String name;
 
     @ManyToMany
-    @JoinTable(name = "student_exam",
+    @JoinTable(name = "Student_Exam_Mapping",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "exam_id"))
     private Set<Exam> registeredExams = new HashSet<>();
 
     @ManyToMany
-    @JoinTable(name = "student_subject",
+    @JoinTable(name = "Student_Subject_Mapping",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))
     private Set<Subject> enrolledSubjects = new HashSet<>();
